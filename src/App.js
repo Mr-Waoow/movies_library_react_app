@@ -4,6 +4,7 @@ import "./App.css";
 import serchIcon from "./icons/search.svg";
 import MovieCard from "./MovieCard";
 import Header from "./Header";
+import Preloader from "./Preloader";
 
 //bbc88e70
 const apiUrl = "https://www.omdbapi.com?apikey=bbc88e70";
@@ -29,10 +30,15 @@ const App = () => {
   // Fetch movies from the API Using async/await(Promise)
   const searchMovies = async (search) => {
     try {
+      const Preloader = document.getElementById("preLoader");
+      Preloader.classList.add("show");
       const response = await fetch(`${apiUrl}&s=${search}`);
       const data = await response.json();
       if (data && data.Search) {
         setMovies(data.Search);
+        setTimeout(() => {
+          Preloader.classList.remove("show");
+        }, 1000);
       } else {
       }
     } catch (error) {
@@ -66,6 +72,8 @@ const App = () => {
           </div>
         </div>
         <div className="movies">
+          <Preloader />
+
           {movies.length > 0 ? (
             movies.map((movie) => <MovieCard movie={movie} />)
           ) : (
