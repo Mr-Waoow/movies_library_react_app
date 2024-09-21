@@ -36,11 +36,11 @@ const App = () => {
       const data = await response.json();
       if (data && data.Search) {
         setMovies(data.Search);
-        setTimeout(() => {
-          Preloader.classList.remove("show");
-        }, 1000);
       } else {
       }
+      setTimeout(() => {
+        Preloader.classList.remove("show");
+      }, 1000);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
