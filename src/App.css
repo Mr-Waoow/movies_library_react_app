@@ -1,38 +1,106 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+body {
+@apply bg-tertiary-main text-secondary-main font-roboto;
+}
+img {
+@apply w-full;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  @apply bg-tertiary-main shadow-md text-secondary-main w-full py-4;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header nav{
+@apply flex justify-start items-center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+nav .logo {
+@apply w-24;
+@apply md:w-28 lg:w-32 xl:w-36 xxl:w-52;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+@apply mx-auto w-auto px-4;
+@apply sm:px-8 md:px-16 lg:px-20 xl:px-24 sm:w-11/12 md:w-4/5 xl:w-3/4 xxl:w-4/5
+}
+.hero {
+@apply flex flex-col justify-items-center items-center py-8;
+@apply md:py-12 xl:py-16 xxl:py-20;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1, h2, h3, h4, h5, h6 {
+  @apply capitalize;
+}
+
+h5,h6 {
+  @apply font-raleway m-0;
+
+}
+
+h1 {
+  @apply bg-gradient-to-r from-20% to-100% from-secondary-main to-primary-main text-4xl bg-clip-text;
+  @apply md:text-5xl xl:text-6xl xxl:text-8xl;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+}
+.search {
+@apply h-10 w-4/5 px-5 flex justify-center items-center gap-1 bg-secondary-900 shadow-lg rounded-full overflow-hidden;
+@apply md:h-12 xl:h-14 xxl:h-20;
+}
+
+.search input {
+@apply text-sm bg-transparent h-full text-tertiary-main flex-grow rounded-full border-none outline-none;
+@apply sm:text-base lg:text-lg xxl:text-3xl;
+}
+.search button {
+@apply cursor-pointer bg-transparent flex-grow-0 rounded-full border-none outline-none;
+}
+.search button img {
+@apply w-4 sm:w-5 lg:w-6 xxl:w-12;
+}
+
+.movies {
+@apply grid grid-cols-1 gap-4 pb-10;
+@apply md:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-4;
+}
+
+.movies h2 {
+@apply text-3xl font-semibold text-center col-span-full;
+}
+
+.movie {
+@apply relative overflow-hidden rounded-lg transition-all duration-300;
+}
+
+.movie:hover {
+transform: scale(1.05);
+}
+
+.movie img {
+@apply w-full object-cover;
+}
+
+.movie .overlay {
+@apply absolute text-tertiary-main p-4 inset-0 bg-gradient-to-t from-0% to-100% from-secondary-soft to-secondary-main rounded-lg opacity-0 transition-all duration-300;
+}
+.movie:hover .overlay {
+@apply opacity-100;
+}
+
+.movie .title {
+@apply absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-1 bg-secondary-main text-tertiary-main;
+}
+
+.title h5 {
+  @apply text-secondary-300 text-base;
+  @apply sm:text-sm lg:text-base xl:text-lg xxl:text-3xl;
+}
+
+.title h6 {
+  @apply text-sm font-semibold;
+  @apply sm:text-xs lg:text-sm xl:text-base xxl:text-2xl;
 }
