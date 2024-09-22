@@ -13,7 +13,23 @@ img {
 }
 
 .header nav{
-@apply flex justify-start items-center;
+@apply flex justify-between items-center;
+}
+
+.menu-flags button > span{
+  @apply gap-3 ;
+}
+
+.menu-flags button > span span {
+  @apply p-0;
+}
+
+.menu-flags ul li > span {
+  @apply gap-3;
+}
+
+.menu-flags ul li > span span {
+  @apply p-0;
 }
 
 nav .logo {
